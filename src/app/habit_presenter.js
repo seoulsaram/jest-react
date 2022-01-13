@@ -1,7 +1,7 @@
-//ui에서 처리해야 하는 로직을 담는 class
 export default class HabitPresenter {
-  constructor(habits) {
+  constructor(habits, maxHabits) {
     this.habits = habits;
+    this.maxHabits = maxHabits;
   }
 
   getHabits() {
@@ -15,7 +15,6 @@ export default class HabitPresenter {
       }
       return item;
     });
-
     update(this.habits);
   }
 
@@ -36,6 +35,9 @@ export default class HabitPresenter {
   }
 
   add(name, update) {
+    if (this.habits.length === this.maxHabits) {
+      throw new Error(`습관의 갯수는 ${this.maxHabits} 이상이 될 수 없습니다`);
+    }
     this.habits = [...this.habits, {id: Date.now(), name, count: 0}];
     update(this.habits);
   }

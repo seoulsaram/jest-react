@@ -2,9 +2,8 @@ import React from 'react';
 import {useCallback} from 'react';
 import {useState} from 'react';
 import './app.css';
-import Habits from './components/habits';
-import Navbar from './components/navbar';
-import HabitPresenter from './habit_presenter';
+import Habits from '../components/habits/habits';
+import Navbar from '../components/navbar/navbar';
 
 //testing을 작성하기에 앞서..
 //현재 코드의 문제점
